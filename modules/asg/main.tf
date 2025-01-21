@@ -50,6 +50,13 @@ resource "aws_launch_template" "main" {
     market_type = "spot"
   }
 
+  block_device_mappings {
+    device_name = "/dev/sda1"
+    ebs {
+      volume_size = 35
+    }
+  }
+
   user_data   = base64encode(templatefile("${path.module}/userdata.sh", {
     env       = var.env
     role_name       = var.name
