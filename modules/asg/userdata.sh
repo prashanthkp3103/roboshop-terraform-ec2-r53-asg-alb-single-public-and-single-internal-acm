@@ -2,9 +2,6 @@
 
 dnf install docker -y
 growpart /dev/nvme0n1 4
-
-growpart
-
 lvextend -r -L +10G /dev/mapper/RootVG-varVol
 #automating manual roboshop docker steps with ansible
 ##installs ansible and hashicorp valut packages
